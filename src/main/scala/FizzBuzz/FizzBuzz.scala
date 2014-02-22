@@ -1,12 +1,19 @@
 package main.scala.FizzBuzz
 
 object FizzBuzz {
-  def toString(numbers: List[Int]): List[String] = {
-    numbers map (x => x.toString)
+  type Element = Either[String, Int]
+
+  def toString(elements: List[Element]): List[String] = {
+    // Remove the constructor of Either by pattern matching
+    elements map (x => (x match {
+      case Left(y)  => y
+      case Right(y) => y
+    }).toString)
   }
 
   def toFizz(numbers: List[Int]): List[String] = {
-    numbers map (x => if (x % 3 == 0) "Fizz" else x.toString)
+    val elements = numbers map (x => if (x % 3 == 0) Left("Fizz") else Right(x))
+    toString(elements)
   }
 
   def toBuzz(numbers: List[Int]): List[String] = {

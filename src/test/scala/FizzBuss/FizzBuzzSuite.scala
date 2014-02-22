@@ -1,17 +1,29 @@
 package test.scala.FizzBuss
 
-import test.scala.UnitSuite
 import main.scala.FizzBuzz.FizzBuzz
+import test.scala.UnitSuite
 
 class FizzBuzzSuite extends UnitSuite {
-  test("We know how to convert a List of Integers into a String") {
-    var numbers = (1 to 5).toList
-    assertResult(List("1", "2", "3", "4", "5"))(FizzBuzz.toString(numbers))
+  test("We know how to convert a List of Int as Either[String, Int] into a List[String]") {
+    var numbers = (1 to 5).toList map (x => Right(x))
+    assertResult(List("1", "2", "3", "4", "5")) {
+      FizzBuzz.toString(numbers)
+    }
+  }
+
+  test("We know hot to convert a List of String as Either[String, Int] int a List[String]") {
+    var fizzbuzz = List("Fizz", "Buzz", "FizzBuzz")
+    var lefts = fizzbuzz map (x => Left(x))
+    assertResult(fizzbuzz) {
+      FizzBuzz.toString(lefts)
+    }
   }
 
   test("We can convert multiples of 3 to Fizz") {
     var numbers = (1 to 5).toList
-    assertResult(List("1", "2", "Fizz", "4", "5"))(FizzBuzz.toFizz(numbers))
+    assertResult(List("1", "2", "Fizz", "4", "5")) {
+      FizzBuzz.toFizz(numbers)
+    }
   }
 
   test("We can convert multiple of 5 to Buzz") {
