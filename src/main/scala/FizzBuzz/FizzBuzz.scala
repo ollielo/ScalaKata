@@ -11,12 +11,11 @@ object FizzBuzz {
     }).toString)
   }
 
-  def toFizz(numbers: List[Element]): List[String] = {
-    val elements = numbers map (x => x match {
+  def toFizz(numbers: List[Element]): List[Element] = {
+    numbers map (x => x match {
       case Right(y) => if (y % 3 == 0) Left("Fizz") else x
-      case _        => x
+      case Left(_)  => x
     })
-    toString(elements)
   }
 
   def toBuzz(numbers: List[Element]): List[String] = {

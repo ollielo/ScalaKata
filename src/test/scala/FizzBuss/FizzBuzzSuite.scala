@@ -22,7 +22,7 @@ class FizzBuzzSuite extends UnitSuite {
   test("We can convert multiples of 3 to Fizz") {
     val numbers = (1 to 5).toList map (x => Right(x))
     assertResult(List("1", "2", "Fizz", "4", "5")) {
-      FizzBuzz.toFizz(numbers)
+      FizzBuzz.toString(FizzBuzz.toFizz(numbers))
     }
   }
 
