@@ -36,7 +36,7 @@ class FizzBuzzSuite extends UnitSuite {
   test("We can convert multiple of 3 and 5 to FizzBuzz") {
     val numbers = List(1, 3, 5, 7, 9, 11, 13, 15) map (x => Right(x))
     assertResult(List("1", "3", "5", "7", "9", "11", "13", "FizzBuzz")) {
-      FizzBuzz.toFizzBuzz(numbers)
+      FizzBuzz.toString(FizzBuzz.toFizzBuzz(numbers))
     }
   }
 
