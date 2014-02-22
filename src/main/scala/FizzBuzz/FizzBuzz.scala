@@ -8,24 +8,18 @@ object FizzBuzz {
   }
 
   def toFizz(numbers: List[Element]): List[Element] = {
-    numbers map (x => x match {
-      case Right(y) => if (y % 3 == 0) Left("Fizz") else x
-      case Left(_)  => x
-    })
+    numbers map (x => x.fold(l => Left(l),
+      r => if (r % 3 == 0) Left("Fizz") else x))
   }
 
   def toBuzz(numbers: List[Element]): List[Element] = {
-    numbers map (x => x match {
-      case Right(y) => if (y % 5 == 0) Left("Buzz") else x
-      case Left(_)  => x
-    })
+    numbers map (x => x.fold(l => Left(l),
+      r => if (r % 5 == 0) Left("Buzz") else x))
   }
 
   def toFizzBuzz(numbers: List[Element]): List[Element] = {
-    numbers map (x => x match {
-      case Right(y) => if (y % 3 == 0 && y % 5 == 0) Left("FizzBuzz") else x
-      case _        => x
-    })
+    numbers map (x => x.fold(l => Left(l),
+      r => if (r % 3 == 0 && r % 5 == 0) Left("FizzBuzz") else x))
   }
 
   def apply(numbers: List[Int]): List[String] = {
