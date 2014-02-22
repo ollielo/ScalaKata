@@ -3,6 +3,16 @@ package main.scala.FizzBuzz
 object FizzBuzz {
   type Element = Either[String, Int]
 
+  // FixME: Why does making numbers lazy solve the problem that
+  // the type is erased by the compiler?
+  def toElement(numbers: => List[Int]): List[Element] = {
+    numbers map (x => Right(x))
+  }
+
+  def toElement(strs: List[String]): List[Element] = {
+    strs map (x => Left(x))
+  }
+
   def toString(elements: List[Element]): List[String] = {
     elements map (x => x.fold(l => l, r => r).toString)
   }
@@ -23,8 +33,7 @@ object FizzBuzz {
   }
 
   def apply(numbers: List[Int]): List[String] = {
-    val elements = numbers map (x => Right(x))
-    toString(toFizz(toBuzz(toFizzBuzz(elements))))
+    toString(toFizz(toBuzz(toFizzBuzz(toElement(numbers)))))
   }
 
   def main(args: Array[String]) {
