@@ -41,7 +41,7 @@ class FizzBuzzSuite extends UnitSuite {
   }
 
   test("We can do the FizzBuzz") {
-    var numbers = List(1, 3, 5, 11, 15) map (x => Right(x))
+    var numbers = List(1, 3, 5, 11, 15)
     assertResult(List("1", "Fizz", "Buzz", "11", "FizzBuzz")) {
       FizzBuzz(numbers)
     }

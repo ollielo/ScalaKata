@@ -32,12 +32,13 @@ object FizzBuzz {
     })
   }
 
-  def apply(numbers: List[Element]): List[String] = {
-    toString(toFizz(toBuzz(toFizzBuzz(numbers))))
+  def apply(numbers: List[Int]): List[String] = {
+    val elements = numbers map (x => Right(x))
+    toString(toFizz(toBuzz(toFizzBuzz(elements))))
   }
-  //    numbers map (x => if (x % 3 == 0 && x % 5 == 0) "FizzBuzz"
-  //    else if (x % 3 == 0) "Fizz"
-  //    else if (x % 5 == 0) "Buzz"
-  //    else x.toString)
-  //  }
+
+  def main(args: Array[String]) {
+    var numbers = (1 to 100).toList
+    print(FizzBuzz(numbers))
+  }
 }
