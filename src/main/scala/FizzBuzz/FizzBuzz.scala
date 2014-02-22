@@ -38,7 +38,7 @@ object FizzBuzz {
   }
 
   def main(args: Array[String]) {
-    var numbers = (1 to 100).toList
+    val numbers = (1 to 100).toList
     print(FizzBuzz(numbers))
   }
 }
