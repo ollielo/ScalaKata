@@ -13,4 +13,9 @@ class FizzBuzzSuite extends UnitSuite {
     var numbers = (1 to 5).toList
     assertResult(List("1", "2", "Fizz", "4", "5"))(FizzBuzz.toFizz(numbers))
   }
+
+  test("We can convert multiple of 5 to Buzz") {
+    var numbers = (1 to 5).toList
+    assertResult(List("1", "2", "3", "4", "Buzz"))(FizzBuzz.toBuzz(numbers))
+  }
 }
