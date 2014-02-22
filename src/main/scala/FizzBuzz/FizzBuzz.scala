@@ -4,11 +4,7 @@ object FizzBuzz {
   type Element = Either[String, Int]
 
   def toString(elements: List[Element]): List[String] = {
-    // Remove the constructor of Either by pattern matching
-    elements map (x => (x match {
-      case Left(y)  => y
-      case Right(y) => y
-    }).toString)
+    elements map (x => x.fold(l => l, r => r).toString)
   }
 
   def toFizz(numbers: List[Element]): List[Element] = {
