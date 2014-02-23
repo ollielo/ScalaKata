@@ -4,16 +4,18 @@ object PrimeFactors {
   def apply(number: Int): List[Int] = {
     require(number > 0)
 
-    def loop: List[Int] = {
-      if (number % 2 == 0) {
-        2 :: PrimeFactors(number / 2)
+    def loop(n: Int, p: Int): List[Int] = {
+      if (n == 1) {
+        List()
+      } else if (n % p == 0) {
+        2 :: loop(n / p, p)
       } else {
-        3 :: PrimeFactors(number / 3)
+        3 :: loop(n / p, p + 1)
       }
     }
     number match {
       case 1 => List()
-      case _ => loop
+      case _ => loop(number, 2)
     }
   }
 }
