@@ -6,7 +6,11 @@ object PrimeFactors {
 
     number match {
       case 1 => List()
-      case _ => List(number)
+      case _ => if (number % 2 == 0) {
+        2 :: PrimeFactors(number / 2)
+      } else {
+        List(number)
+      }
     }
   }
 }
