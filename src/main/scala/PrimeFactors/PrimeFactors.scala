@@ -6,7 +6,7 @@ object PrimeFactors {
 
     number match {
       case 1 => List()
-      case 2 => List(2)
+      case _ => List(number)
     }
   }
 }

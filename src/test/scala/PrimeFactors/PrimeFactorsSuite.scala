@@ -17,4 +17,8 @@ class PrimeFactorsSuite extends UnitSuite {
   test("2 is the prime factor of itself") {
     assertResult(List(2))(PrimeFactors(2))
   }
+
+  test("3 is also the primer factor of itself") {
+    assertResult(List(3))(PrimeFactors(3))
+  }
 }
