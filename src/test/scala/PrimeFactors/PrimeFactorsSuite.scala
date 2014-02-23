@@ -25,4 +25,16 @@ class PrimeFactorsSuite extends UnitSuite {
   test("4 can be factroed into 2 times 2") {
     assertResult(List(2, 2))(PrimeFactors(4))
   }
+
+  test("6 can be factored into 2 times 3") {
+    assertResult(List(2, 3))(PrimeFactors(6))
+  }
+
+  test("8 is actually 2 to the power of 3") {
+    assertResult(List(2, 2, 2))(PrimeFactors(8))
+  }
+
+  test("9 is actually 3 to the power of 3") {
+    assertResult(List(3, 3, 3))(PrimeFactors(9))
+  }
 }
