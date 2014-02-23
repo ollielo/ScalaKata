@@ -9,7 +9,12 @@ class PrimeFactorsSuite extends UnitSuite {
       PrimeFactors(0)
     }
   }
+
   test("1 does not have any prime factors") {
     assertResult(Nil)(PrimeFactors(1))
+  }
+
+  test("2 is the prime factor of itself") {
+    assertResult(List(2))(PrimeFactors(2))
   }
 }
