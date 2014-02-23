@@ -9,7 +9,7 @@ object PrimeFactors {
       case _ => if (number % 2 == 0) {
         2 :: PrimeFactors(number / 2)
       } else {
-        List(number)
+        3 :: List(number / 3)
       }
     }
   }

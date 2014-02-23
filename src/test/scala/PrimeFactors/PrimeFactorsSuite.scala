@@ -34,7 +34,7 @@ class PrimeFactorsSuite extends UnitSuite {
     assertResult(List(2, 2, 2))(PrimeFactors(8))
   }
 
-  test("9 is actually 3 to the power of 3") {
-    assertResult(List(3, 3, 3))(PrimeFactors(9))
+  test("9 is actually 3 to the power of 2") {
+    assertResult(List(3, 3))(PrimeFactors(9))
   }
 }
