@@ -1,4 +1,4 @@
-package test.scala.FizzBuss
+package test.scala.FizzBuzz
 
 import main.scala.FizzBuzz.FizzBuzz
 import test.scala.UnitSuite
