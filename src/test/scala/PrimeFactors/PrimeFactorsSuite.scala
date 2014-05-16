@@ -1,9 +1,12 @@
 package test.scala.PrimeFactors
 
-import test.scala.UnitSuite
-import main.scala.PrimeFactors.PrimeFactors
+import org.scalacheck.Prop.propBoolean
+import org.scalatest.prop.Checkers
 
-class PrimeFactorsSuite extends UnitSuite {
+import main.scala.PrimeFactors.PrimeFactors
+import test.scala.UnitSuite
+
+class PrimeFactorsSuite extends UnitSuite with Checkers {
   test("0 or negative numbers are not valid input") {
     intercept[IllegalArgumentException] {
       PrimeFactors(0)
@@ -40,5 +43,9 @@ class PrimeFactorsSuite extends UnitSuite {
 
   test("24 can be factored into 2x2x2x3") {
     assertResult(List(2, 2, 2, 3))(PrimeFactors(24))
+  }
+
+  test("Multiplying the factors gives us back the original number") {
+    check((n: Int) => (n > 1) ==> (n == PrimeFactors(n).fold(1)(_ * _)))
   }
 }
