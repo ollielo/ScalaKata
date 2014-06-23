@@ -1,10 +1,10 @@
 package test.scala.MineSweeper
 
 import test.scala.UnitSuite
-import org.scalatest.BeforeAndAfter
+import main.scala.MineSweeper.MineReader
 
-class MineReaderSuite extends UnitSuite with BeforeAndAfter {
-  test("Reading an empty file return Nothing") {
-    assertResult(Nothing)(MineReader("minesweeper_empty.txt"))
+class MineReaderSuite extends UnitSuite {
+  test("Reading an empty file returns Nothing") {
+    assertResult(None)(MineReader("minesweeper_empty.txt"))
   }
 }
