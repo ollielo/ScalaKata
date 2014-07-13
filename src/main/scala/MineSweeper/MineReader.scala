@@ -7,9 +7,14 @@ class MineField(val dims: Tuple2[Int, Int] = (0, 0)) {
     this((lines.length, lines(0).length))
   }
 
+  def apply(row: Int, col: Int): Some[Char] = {
+    Some(' ')
+  }
+
   override def toString() = {
     "Field: (" + dims._1 + ", " + dims._2
   }
+
 }
 
 object MineField {
