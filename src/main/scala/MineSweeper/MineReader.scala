@@ -4,7 +4,7 @@ import scala.io.Source
 
 class MineField(lines: Array[String]) {
   private val contents: Array[Array[Char]] =
-    lines.map(line => line.toArray)
+    lines.map(line => line.split(" ").flatMap(x => x.toCharArray))
 
   def dims = (contents.length, contents(0).length)
 
