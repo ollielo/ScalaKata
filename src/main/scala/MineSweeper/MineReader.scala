@@ -2,13 +2,14 @@ package main.scala.MineSweeper
 
 import scala.io.Source
 
-class MineField(val dims: Tuple2[Int, Int] = (0, 0)) {
-  def this(lines: Array[String]) = {
-    this((lines.length, lines(0).length))
-  }
+class MineField(lines: Array[String]) {
+  private val contents: Array[Array[Char]] =
+    lines.map(line => line.toArray)
+
+  def dims = (contents.length, contents(0).length)
 
   def apply(row: Int, col: Int): Some[Char] = {
-    Some(' ')
+    Some(contents(row)(col))
   }
 
   override def toString() = {
@@ -24,7 +25,7 @@ object MineField {
 }
 
 object MineReader {
-  def ParseMineFields(lines: Array[String]): List[MineField] = {
+  private def ParseMineFields(lines: Array[String]): List[MineField] = {
     val dims = lines.head.split(" ").map(x => x.toInt)
     dims match {
       case Array(0, 0) => Nil // (0, 0) means the end of the input stream.
