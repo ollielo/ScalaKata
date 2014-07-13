@@ -1,10 +1,8 @@
 package test.scala.MineSweeper
 
-import test.scala.UnitSuite
-import main.scala.MineSweeper.MineReader
-import java.io.File
-import org.scalatest.Ignore
 import main.scala.MineSweeper.MineField
+import main.scala.MineSweeper.MineReader
+import test.scala.UnitSuite
 
 class MineReaderUnit extends UnitSuite {
   val dir = "src/test/resources/"

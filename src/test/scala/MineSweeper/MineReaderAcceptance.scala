@@ -1,8 +1,9 @@
 package test.scala.MineSweeper
 
 import org.scalatest.BeforeAndAfterEach
-import test.scala.UnitSuite
+
 import main.scala.MineSweeper.MineReader
+import test.scala.UnitSuite
 
 class MineReaderAcceptance extends UnitSuite with BeforeAndAfterEach {
   val dir = "src/test/resources/"
