@@ -5,7 +5,7 @@ import main.scala.MineSweeper.MineReader
 import java.io.File
 import org.scalatest.Ignore
 
-class MineReaderSuite extends UnitSuite {
+class MineReaderUnit extends UnitSuite {
   val dir = "src/test/resources/"
 
   test("Reading an empty file returns None") {
