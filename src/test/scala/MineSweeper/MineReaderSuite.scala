@@ -39,23 +39,5 @@ class MineReaderSuite extends UnitSuite {
       case None => fail("Expected Some(List[Field]), got None")
     }
   }
-
-  test("Acceptance input has two MineFields") {
-    val maybeFields = MineReader(dir + "minesweeper_acceptance.txt")
-    maybeFields match {
-      case Some(fields) =>
-        assertResult(2)(fields.length)
-      case None => fail("Expected Some(List[Field]), got None")
-    }
-  }
-
-  test("The first filed in the accpetance input is 4 by 4") {
-    val maybeFields = MineReader(dir + "minesweeper_acceptance.txt")
-    maybeFields match {
-      case Some(fields) =>
-        val field = fields.head
-        assertResult((4, 4))(field.dims)
-      case None => fail("Expected Some(List[Field]), got None")
-    }
-  }
 }
+
