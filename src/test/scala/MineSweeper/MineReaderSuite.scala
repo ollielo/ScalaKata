@@ -22,9 +22,12 @@ class MineReaderSuite extends UnitSuite {
 
   test("Reading an input file with only one mine returns a List with a 1 by 1 field") {
     val maybeFields = MineReader(dir + "minesweeper_1by1_mine.txt")
+    //    println(maybeFields)
     maybeFields match {
-      case Some(fileds) => assertResult((1, 1))(fileds.head.dims)
-      case None         => fail("Expected Some(List[Field]), got None")
+      case Some(fields) =>
+        val field = fields.head
+        assertResult((1, 1))(field.dims)
+      case None => fail("Expected Some(List[Field]), got None")
     }
   }
 
