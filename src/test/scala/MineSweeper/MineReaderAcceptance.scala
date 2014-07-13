@@ -17,7 +17,7 @@ class MineReaderAcceptance extends UnitSuite with BeforeAndAfterEach {
   }
 
   test("The first filed is 4 by 4") {
-    val field = fields.head
+    val field = fields(0)
     assertResult((4, 4))(field.dims)
   }
 
@@ -26,4 +26,16 @@ class MineReaderAcceptance extends UnitSuite with BeforeAndAfterEach {
     assertResult((3, 5))(field.dims)
   }
 
+  test("The first field has mines at (0, 0) and (2, 1)") {
+    val field = fields(0)
+    assertResult(Some('*'))(field(0, 0))
+    assertResult(Some('*'))(field(2, 1))
+  }
+
+  test("The second field has mines at (0, 0), (0, 1) and (2, 1)") {
+    val field = fields(1)
+    assertResult(Some('*'))(field(0, 0))
+    assertResult(Some('*'))(field(0, 1))
+    assertResult(Some('*'))(field(2, 1))
+  }
 }
