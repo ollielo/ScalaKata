@@ -19,10 +19,23 @@ class MineField(lines: Array[String]) {
     contents map (line => line.mkString(" ")) mkString ("\n")
   }
 
+  override def equals(other: Any) = {
+    other match {
+      case that: main.scala.MineSweeper.MineField =>
+        that.isInstanceOf[MineField] &&
+          that.contents.deep == this.contents.deep
+      case _ => false
+    }
+  }
 }
 
 object MineField {
   def apply(lines: Array[String]): MineField = {
+    new MineField(lines)
+  }
+
+  def apply(arrays: Array[Array[Char]]): MineField = {
+    val lines = arrays.map(a => a.mkString(" "))
     new MineField(lines)
   }
 }

@@ -13,4 +13,13 @@ class MineSolverUnit extends UnitSuite {
     assertResult(field)(MineSolver(field))
   }
 
+  test("Solving 1 by 1 field without a mine should return zero") {
+    val lines = Array(".")
+    val field = MineField(lines)
+
+    val lines1 = Array("0")
+    val field1 = MineField(lines1)
+
+    assertResult(field1)(MineSolver(field))
+  }
 }
