@@ -36,6 +36,6 @@ object MineField {
 
   def apply(arrays: Array[Array[Char]]): MineField = {
     val lines = arrays.map(a => a.mkString(" "))
-    new MineField(lines)
+    MineField(lines)
   }
 }
