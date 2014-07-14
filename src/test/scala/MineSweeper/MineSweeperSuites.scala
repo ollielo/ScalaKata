@@ -6,4 +6,5 @@ import org.scalatest.ParallelTestExecution
 class MineSweeperSuites extends Suites(
   new MineFieldUnit,
   new MineReaderUnit,
-  new MineReaderAcceptance) with ParallelTestExecution
+  new MineReaderAcceptance,
+  new MineSolverUnit) with ParallelTestExecution
