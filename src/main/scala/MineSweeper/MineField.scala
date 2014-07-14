@@ -6,8 +6,13 @@ class MineField(lines: Array[String]) {
 
   def dims = (contents.length, contents(0).length)
 
-  def apply(row: Int, col: Int): Some[Char] = {
-    Some(contents(row)(col))
+  def apply(row: Int, col: Int): Option[Char] = {
+    if (row >= 0 && row < dims._1 &&
+      col >= 0 && col < dims._2) {
+      Some(contents(row)(col))
+    } else {
+      None
+    }
   }
 
   override def toString() = {
