@@ -2,7 +2,7 @@ package main.scala.MineSweeper
 
 object MineSolver {
   def apply(field: MineField): MineField = {
-    val arrays = (for {
+    val array = Array() ++ (for {
       row <- 0 until field.dims._1
       col <- 0 until field.dims._2
     } yield {
@@ -12,8 +12,8 @@ object MineSolver {
       }
     })
 
-    //println(arrays)
-    MineField(arrays.toArray.sliding(field.dims._1, field.dims._1).toArray)
-    //field
+    val aoa = array.sliding(field.dims._2).toArray
+
+    MineField(aoa)
   }
 }

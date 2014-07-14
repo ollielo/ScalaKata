@@ -22,4 +22,10 @@ class MineSolverUnit extends UnitSuite {
 
     assertResult(field1)(MineSolver(field))
   }
+
+  test("Solving 1 by 3 field with one mine in the middle should return '1 * 1'") {
+    val field = MineField(Array(". * ."))
+    val solution = MineField(Array("1 * 1"))
+    assertResult(solution)(MineSolver(field))
+  }
 }
