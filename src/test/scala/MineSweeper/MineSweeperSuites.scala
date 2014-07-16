@@ -7,4 +7,5 @@ class MineSweeperSuites extends Suites(
   new MineFieldUnit,
   new MineReaderUnit,
   new MineReaderAcceptance,
-  new MineSolverUnit) with ParallelTestExecution
+  new MineSolverUnit,
+  new MineSolverAcceptance) with ParallelTestExecution
