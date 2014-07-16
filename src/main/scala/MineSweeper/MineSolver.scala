@@ -25,7 +25,7 @@ object MineSolver {
       }
     })
 
-    val aoa = array.sliding(field.dims._2).toArray
+    val aoa = array.sliding(field.dims._2, field.dims._2).toArray
 
     MineField(aoa)
   }
