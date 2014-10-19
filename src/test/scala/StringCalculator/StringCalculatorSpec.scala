@@ -34,5 +34,12 @@ class StringCalculatorSpec extends UnitSpec {
         StringCalculator("1,-2,3")
       }
     }
+
+    it("Should should show all the negative numbers in the exception message") {
+      val thrown = the[NegativeNumberException] thrownBy {
+        StringCalculator("1,-2,3,-4")
+      }
+      thrown.getMessage should equal("-2,-4")
+    }
   }
 }

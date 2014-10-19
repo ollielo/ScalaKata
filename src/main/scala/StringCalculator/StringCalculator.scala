@@ -15,7 +15,7 @@ object StringCalculator {
     }).split("[,\n]").map(_.toInt)
 
     if (numbers.exists(_ < 0))
-      throw NegativeNumberException("")
+      throw NegativeNumberException(numbers.filter(_ < 0).mkString(","))
     else
       numbers.sum
   }
