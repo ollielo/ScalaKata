@@ -8,5 +8,9 @@ class StringCalculatorSpec extends UnitSpec {
     it("Should return 0 for an empty String") {
       StringCalculator("") should equal(0)
     }
+
+    it("Should return the number for a single number input") {
+      StringCalculator("1") should equal(1)
+    }
   }
 }
