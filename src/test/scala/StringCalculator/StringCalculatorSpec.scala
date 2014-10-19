@@ -24,5 +24,9 @@ class StringCalculatorSpec extends UnitSpec {
     it("Should support using the newline character as delimiters too") {
       StringCalculator("1\n2,3") should equal(6)
     }
+
+    it("Should support user specified delimiter") {
+      StringCalculator("//;\n1;2") should equal(3)
+    }
   }
 }
