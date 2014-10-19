@@ -12,5 +12,9 @@ class StringCalculatorSpec extends UnitSpec {
     it("Should return the number for a single number input") {
       StringCalculator("1") should equal(1)
     }
+
+    it("Should return the sum of two numbers delimited by a comma") {
+      StringCalculator("1,2") should equal(3)
+    }
   }
 }

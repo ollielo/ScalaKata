@@ -3,5 +3,5 @@ package main.scala.StringCalculator
 object StringCalculator {
   def apply(input: String): Int =
     if (input.isEmpty) 0
-    else input.toInt
+    else input.split(",").map(_.toInt).sum
 }
