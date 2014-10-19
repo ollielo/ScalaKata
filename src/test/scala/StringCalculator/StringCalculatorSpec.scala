@@ -16,5 +16,13 @@ class StringCalculatorSpec extends UnitSpec {
     it("Should return the sum of two numbers delimited by a comma") {
       StringCalculator("1,2") should equal(3)
     }
+
+    it("Should return the sum for an unknown amount of numbers delimited by commas") {
+      StringCalculator("1,2,3,4,5") should equal(15)
+    }
+
+    it("Should support using the newline character as delimiters too") {
+      StringCalculator("1\n2,3") should equal(6)
+    }
   }
 }
