@@ -1,6 +1,6 @@
 package test.scla.StringCalculator
 
-import main.scala.StringCalculator.StringCalculator
+import main.scala.StringCalculator.{NegativeNumberException, StringCalculator}
 import test.scala.UnitSpec
 
 class StringCalculatorSpec extends UnitSpec {
@@ -27,6 +27,12 @@ class StringCalculatorSpec extends UnitSpec {
 
     it("Should support user specified delimiter") {
       StringCalculator("//;\n1;2") should equal(3)
+    }
+
+    it("Should throw an exception when given a negative number") {
+      an[NegativeNumberException] should be thrownBy {
+        StringCalculator("1,-2,3")
+      }
     }
   }
 }
